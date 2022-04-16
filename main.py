@@ -1,16 +1,16 @@
 import keras
-import tensorflow as tf
 import matplotlib
 import numpy as np
-from keras.datasets import mnist
-from keras.models import Sequential
-from keras.layers import Dense, Flatten
-from keras.layers import  MaxPooling2D, Conv2D
+import tensorflow.keras.losses
+from tensorflow.keras.datasets import mnist
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Flatten
+from tensorflow.keras.layers import MaxPooling2D, Conv2D
 from dl_bot import DLBot
 from telegram_bot_callback import TelegramBotCallback
+import seaborn as sns
 
-
-
+sns.set()
 
 token = "5351420165:AAEpaaSsqQiQEltc9JzBn0WRJLY0tj1FS_w"
 mlops_demo_bot = DLBot(token = token, user_id=788090772)

@@ -23,7 +23,6 @@ class DLBot(object):
      /plot: get a reply with the loss convergence plot image
      /quiet: stop getting automatic updates each epoch
      /stoptraining: kill training process
-
     # Arguments
         token: String, a telegram bot token
         user_id: Integer. Specifying a telegram user id will filter all incoming
@@ -77,6 +76,9 @@ class DLBot(object):
         dp.add_handler(CommandHandler("getlr", self.get_lr, filters=self.filters))  # /get learning rate
         dp.add_handler(CommandHandler("quiet", self.quiet, filters=self.filters))  # /stop automatic updates
         dp.add_handler(CommandHandler("plot", self.plot_loss, filters=self.filters))  # /plot loss
+
+        dp.add_handler(CommandHandler("antigravity", self.anti_gravity, filters=self.filters))  # easter egg
+
         dp.add_handler(self.lr_handler())  # set learning rate
         dp.add_handler(self.stop_handler())  # stop training
 
@@ -86,6 +88,9 @@ class DLBot(object):
 
         # Uncomment next line while debugging
         # self.updater.idle()
+    def anti_gravity(self, bot, update):
+        import antigravity
+        self.chat_id = update.message.chat_id
 
     def stop_bot(self):
         """ Function to stop the bot """
@@ -224,12 +229,12 @@ class DLBot(object):
         loss_np = np.asarray(self.loss_hist)
         # Check if training has a validation set
         val_loss_np = np.asarray(self.val_loss_hist) if self.val_loss_hist else None
-        legend_keys = ['loss', 'val_loss'] if self.val_loss_hist else ['loss']
+        legend_keys = ['training_loss', 'val_loss'] if self.val_loss_hist else ['loss']
 
         x = np.arange(len(loss_np))  # Epoch axes
         fig = plt.figure()
         ax = plt.axes()
-        ax.plot(x, loss_np, 'b')  # Plot training loss
+        ax.plot(x+1, loss_np, 'b')  # Plot training loss
         if val_loss_np is not None:
             ax.plot(x, val_loss_np, 'r')  # Plot val loss
         plt.title('Loss Convergence')

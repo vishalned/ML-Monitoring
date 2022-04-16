@@ -1,6 +1,5 @@
-
-from keras.callbacks import Callback
-import keras.backend as K
+from tensorflow.keras.callbacks import Callback
+import tensorflow.keras.backend as K
 
 from dl_bot import DLBot
 

@@ -6,7 +6,8 @@ Training of Machine Learning models takes a sufficient amount of time. There hav
 
 ### **How to run**
 - Set up bot father. Open telegram, and type /botfather and create a new bot.
-- Copy the http token of your bot to the "token" keyword in the main.py file. 
+- Copy the http token of your bot to the "token" keyword in the main.py file.
+- Set the user id to your Telegram user id so that only you can control the training 
 - When the training starts, open the bot on your device and type /start to begin displaying the results
 
 ### **Bot Commands**

@@ -10,12 +10,15 @@ Training of Machine Learning models takes a sufficient amount of time. There hav
 - When the training starts, open the bot on your device and type /start to begin displaying the results
 
 ### **Bot Commands**
-- /start : start the bot
-- /stop_bot : terminate the bot
-- /stop_training : stop the training
-- /plot_loss : plot the train/validation loss at that instance
-- /quiet : stop displaying stats after every epoch
-- **/anti_gravity : Read a comic, incase you get bored waiting for the training to complete**
+- /start : start the bot to get automatic updates
+- /help: get a reply with all command options
+- /status: get a reply with the latest epoch's results
+- /getlr: get a reply with the current learning rate
+- /setlr: change the learning rate (multiply by a factor of 0.5,0.1,2 or 10)
+- /stoptraining : stop the training
+- /plot: plot the train/validation loss at that instance
+- /quiet: stop getting automatic updates each epoch
+- **/antigravity : Read a comic, incase you get bored waiting for the training to complete**
 
 ### **Dependencies**
 - Python-telegram-bot == 12.0.0
